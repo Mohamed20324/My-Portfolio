@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MEM">
+  <rect width="64" height="64" rx="14" fill="#0B0B0F"/>
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#4F8CFF" stroke-width="2" opacity="0.45"/>
+  <text
+    x="32"
+    y="42"
+    text-anchor="middle"
+    font-family="Arial Black, Arial, sans-serif"
+    font-size="28"
+    font-weight="800"
+    fill="#4F8CFF"
+    letter-spacing="-1"
+  >M</text>
+</svg>
