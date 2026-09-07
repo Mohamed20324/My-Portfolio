@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-text font-satoshi;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  #root {
+    overflow-x: hidden;
+    min-width: 0;
+  }
+
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 2000px;
+  }
+
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-radius: 9999px;
+    border: 1.5px solid #F8F8F8;
+    background: transparent;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    will-change: transform;
+    transform: translate3d(-100px, -100px, 0) scale(1);
+    transition: border-color 150ms ease, background-color 150ms ease;
+    mix-blend-mode: difference;
+  }
+
+  .custom-cursor.is-hovering {
+    border-color: #4F8CFF;
+    background-color: rgba(79, 140, 255, 0.12);
+    mix-blend-mode: normal;
+  }
+
+  @media (max-width: 767px), (pointer: coarse) {
+    .custom-cursor {
+      display: none !important;
+    }
+
+    html.has-custom-cursor,
+    html.has-custom-cursor * {
+      cursor: auto !important;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .custom-cursor {
+      display: none !important;
+    }
+
+    html.has-custom-cursor,
+    html.has-custom-cursor * {
+      cursor: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #121217;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a35;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4F8CFF;
+  }
+
+  ::selection {
+    background: rgba(79, 140, 255, 0.3);
+    color: #F8F8F8;
+  }
+}
+
+@layer components {
+  .text-editorial {
+    @apply font-cabinet tracking-tight leading-[0.9];
+  }
+
+  .text-body-luxury {
+    @apply font-satoshi leading-[1.8] tracking-wide;
+  }
+
+  .glass-panel {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/[0.05] rounded-3xl;
+  }
+
+  .hover-lift {
+    transition: transform 500ms ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-0.5rem);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    will-change: transform, opacity;
+    animation: orb-pulse 10s ease-in-out infinite;
+  }
+
+  .shape-spin {
+    animation: shape-spin 30s linear infinite;
+  }
+
+  @keyframes orb-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.35;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes shape-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
